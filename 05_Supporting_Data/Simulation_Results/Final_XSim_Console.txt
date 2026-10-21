@@ -1,0 +1,101 @@
+restart
+INFO: [Wavedata 42-604] Simulation restarted
+run all
+WRITEBACK: R1 <= 00000005   PC=1 state=5
+WRITEBACK: R2 <= 00000007   PC=2 state=5
+WRITEBACK: R3 <= 0000000c   PC=3 state=3
+WRITEBACK: R4 <= 00000002   PC=4 state=3
+WRITEBACK: R5 <= 00000005   PC=5 state=3
+WRITEBACK: R6 <= 00000007   PC=6 state=3
+WRITEBACK: R7 <= 00000002   PC=7 state=3
+WRITEBACK: R8 <= fffffff8   PC=8 state=3
+WRITEBACK: R9 <= 00000021   PC=9 state=5
+WRITEBACK: R10 <= 0000000a   PC=10 state=3
+WRITEBACK: R11 <= 7ffffffc   PC=11 state=3
+WRITEBACK: R12 <= 00000000   PC=12 state=3
+WRITEBACK: R12 <= 00000004   PC=13 state=5
+WRITEBACK: R12 <= 00000005   PC=14 state=5
+MEMWRITE : MEM[0] <= 0000000c   PC=15 state=9
+WRITEBACK: R13 <= 0000000c   PC=16 state=8
+MEMWRITE : MEM[4] <= 0000000c   PC=20 state=9
+MEMWRITE : MEM[5] <= 0000000c   PC=24 state=9
+WRITEBACK: R14 <= 0000001b   PC=27 state=12
+WRITEBACK: R12 <= 00000001   PC=33 state=5
+WRITEBACK: R15 <= 0000002a   PC=28 state=5
+MEMWRITE : MEM[3] <= 00000001   PC=29 state=9
+WRITEBACK: R13 <= ffffff80   PC=36 state=8
+WRITEBACK: R3 <= 00000064   PC=37 state=15
+MEMWRITE : MEM[2] <= 0000000c   PC=37 state=15
+WRITEBACK: R4 <= 00000001   PC=38 state=5
+WRITEBACK: R4 <= 00000000   PC=39 state=5
+WRITEBACK: R4 <= ffffffff   PC=39 state=5
+MEMWRITE : MEM[6] <= ffffffff   PC=41 state=9
+WRITEBACK: R12 <= 00020000   PC=42 state=5
+MEMWRITE : MEM[7] <= 00020000   PC=43 state=9
+WRITEBACK: R12 <= 00020000   PC=44 state=5
+MEMWRITE : MEM[8] <= 00020000   PC=45 state=9
+WRITEBACK: R0 <= 0000007b   PC=46 state=5
+
+================ FINAL REGISTER CHECKS ================
+PASS: R0 = 00000000
+PASS: R1 = 00000005
+PASS: R2 = 00000007
+PASS: R3 = 00000064
+PASS: R4 = ffffffff
+PASS: R5 = 00000005
+PASS: R6 = 00000007
+PASS: R7 = 00000002
+PASS: R8 = fffffff8
+PASS: R9 = 00000021
+PASS: R10 = 0000000a
+PASS: R11 = 7ffffffc
+PASS: R12 = 00020000
+PASS: R13 = ffffff80
+PASS: R14 = 0000001b
+PASS: R15 = 0000002a
+
+================ FINAL MEMORY CHECKS ==================
+PASS: MEM[0] = 0000000c
+PASS: MEM[1] = 00000080
+PASS: MEM[2] = 0000000c
+PASS: MEM[3] = 00000001
+PASS: MEM[4] = 0000000c
+PASS: MEM[5] = 0000000c
+PASS: MEM[6] = ffffffff
+PASS: MEM[7] = 00020000
+PASS: MEM[8] = 00020000
+PASS: MEM[9] = 00000000
+PASS: MEM[10] = 00000000
+PASS: MEM[11] = 00000000
+
+================ OPCODE COVERAGE ======================
+PASS: opcode 0 (ADD) executed
+PASS: opcode 1 (SUB) executed
+PASS: opcode 2 (AND) executed
+PASS: opcode 3 (OR) executed
+PASS: opcode 4 (XOR) executed
+PASS: opcode 5 (NOR) executed
+PASS: opcode 6 (SLL) executed
+PASS: opcode 7 (SRL) executed
+PASS: opcode 8 (CLR) executed
+PASS: opcode 9 (JR) executed
+PASS: opcode 10 (ADDI) executed
+PASS: opcode 11 (ANDI) executed
+PASS: opcode 12 (ORI) executed
+PASS: opcode 13 (LW) executed
+PASS: opcode 14 (SW) executed
+PASS: opcode 15 (SWAP) executed
+PASS: opcode 16 (BEQ) executed
+PASS: opcode 17 (BNE) executed
+PASS: opcode 18 (J) executed
+PASS: opcode 19 (JAL) executed
+PASS: opcode 20 (Lb) executed
+
+================ BRANCH OUTCOME COVERAGE =============
+PASS: coverage flag: BEQ taken
+PASS: coverage flag: BEQ not taken
+PASS: coverage flag: BNE taken
+PASS: coverage flag: BNE not taken
+
+FINAL PROCESSOR TEST: PASS
+$finish called at time : 2415 ns : File "C:/Users/WAAD/Desktop/ENCS4370_Project2/ENCS4370_Project2.srcs/sim_1/imports/project2Arc/final_processor_tb.v" Line 482

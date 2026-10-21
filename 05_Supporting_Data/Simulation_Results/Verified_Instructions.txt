@@ -1,0 +1,37 @@
+ENCS4370 Project 2 - Verified Instruction Set
+==============================================
+
+Fresh Vivado/XSim final regression result: PASS
+Completion time: 2415 ns
+
+Opcode  Instruction  Status  Verification evidence
+------  -----------  ------  -----------------------------------------------
+0       ADD          PASS    R3=R1+R2; result 0000000C before later SWAP.
+1       SUB          PASS    R4=R2-R1=00000002 before negative test.
+2       AND          PASS    R5=00000005.
+3       OR           PASS    R6=00000007.
+4       XOR          PASS    R7=00000002.
+5       NOR          PASS    R8=FFFFFFF8.
+6       SLL          PASS    Shift source=33; B[4:0]=1; R10=0000000A.
+7       SRL          PASS    Shift source=33; B[4:0]=1; R11=7FFFFFFC.
+8       CLR          PASS    CLR executes and clears R12 before later reuse.
+9       JR           PASS    Returns from subroutine to PC 27.
+10      ADDI         PASS    Positive, -1 immediate, and attempted R0 write.
+11      ANDI         PASS    18'h20000 zero-extension test; MEM[8]=00020000.
+12      ORI          PASS    18'h20000 zero-extension test; MEM[7]=00020000.
+13      LW           PASS    R13 loads MEM[0]=0000000C.
+14      SW           PASS    Stores execute at normal and marker locations.
+15      SWAP         PASS    Final R3=00000064 and MEM[2]=0000000C.
+16      BEQ          PASS    Taken, not-taken, and negative-offset cases.
+17      BNE          PASS    Both not-taken and taken cases.
+18      J            PASS    Jump skip behavior and final halt-like self-loop.
+19      JAL          PASS    R14=0000001B; subroutine target PC=32.
+20      Lb           PASS    0x80 lower byte sign-extends to FFFFFF80.
+
+Branch outcome coverage:
+PASS - BEQ taken
+PASS - BEQ not taken
+PASS - BNE taken
+PASS - BNE not taken
+
+Final status: FINAL PROCESSOR TEST: PASS

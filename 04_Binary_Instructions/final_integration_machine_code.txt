@@ -1,0 +1,49 @@
+PC | Machine Code | Assembly / Purpose
+---|---|---
+0 | 0x28400005 | ADDI R1,R0,5
+1 | 0x28800007 | ADDI R2,R0,7
+2 | 0x00C48000 | ADD R3,R1,R2
+3 | 0x05084000 | SUB R4,R2,R1
+4 | 0x09448000 | AND R5,R1,R2
+5 | 0x0D848000 | OR R6,R1,R2
+6 | 0x11C48000 | XOR R7,R1,R2
+7 | 0x16048000 | NOR R8,R1,R2
+8 | 0x2A400021 | ADDI R9,R0,33
+9 | 0x1A864000 | SLL R10,R1,R9
+10 | 0x1EE24000 | SRL R11,R8,R9
+11 | 0x23000000 | CLR R12
+12 | 0x2F0C0006 | ANDI R12,R3,6
+13 | 0x33300001 | ORI R12,R12,1
+14 | 0x38C00000 | SW R3,0(R0)
+15 | 0x37400000 | LW R13,0(R0)
+16 | 0x434C0002 | BEQ R13,R3,+2
+17 | 0x38C00009 | SW R3,9(R0) ; poison, must skip
+18 | 0x44440002 | BNE R1,R1,+2 ; not taken
+19 | 0x38C00004 | SW R3,4(R0) ; not-taken marker
+20 | 0x44840002 | BNE R2,R1,+2
+21 | 0x38C0000A | SW R3,10(R0) ; poison, must skip
+22 | 0x40840002 | BEQ R2,R1,+2 ; not taken
+23 | 0x38C00005 | SW R3,5(R0) ; not-taken marker
+24 | 0x48000002 | J +2
+25 | 0x38C0000B | SW R3,11(R0) ; poison, must skip
+26 | 0x4C000006 | JAL +6 ; target 32, R14=27
+27 | 0x2BC0002A | ADDI R15,R0,42 ; return point
+28 | 0x3B000003 | SW R12,3(R0) ; subroutine-result marker
+29 | 0x48000006 | J +6 ; continue to 35
+30 | 0x00000000 | ADD R0,R0,R0 ; filler/no architectural effect
+31 | 0x00000000 | ADD R0,R0,R0 ; filler/no architectural effect
+32 | 0x2B000001 | ADDI R12,R0,1 ; subroutine
+33 | 0x24380000 | JR R14
+34 | 0x00000000 | ADD R0,R0,R0 ; filler/no architectural effect
+35 | 0x53400001 | Lb R13,1(R0)
+36 | 0x3CC00002 | SWAP R3,2(R0)
+37 | 0x29000001 | ADDI R4,R0,1
+38 | 0x2913FFFF | ADDI R4,R4,-1
+39 | 0x4103FFFF | BEQ R4,R0,-1 ; taken once then not taken
+40 | 0x39000006 | SW R4,6(R0)
+41 | 0x33020000 | ORI R12,R0,0x20000
+42 | 0x3B000007 | SW R12,7(R0)
+43 | 0x2F120000 | ANDI R12,R4,0x20000
+44 | 0x3B000008 | SW R12,8(R0)
+45 | 0x2800007B | ADDI R0,R0,123
+46 | 0x48000000 | J 0 ; halt-like self-loop

@@ -1,0 +1,57 @@
+ENCS4370 Project 2 - Partner 3 Static RTL / Integration Audit
+====================================================
+
+This is a STATIC cross-check, not an RTL simulation result.
+
+PASS - control_unit.v FSM/control schedule audited against the project ISA and
+       partner module interfaces.
+PASS - top_processor.v mux/field/PC/write-back integration audited.
+PASS - final_processor_tb.v program contains all opcodes 0..20.
+PASS - Testbench instruction encodings match final_integration.hex exactly:
+       47 / 47 words matched.
+PASS - Independent ISA-level reference execution reaches all 21 opcodes.
+PASS - Reference branch outcomes include:
+       BEQ taken, BEQ not taken, BNE taken, BNE not taken.
+PASS - Independent reference model expected final Register File state:
+       R0  = 00000000
+       R1  = 00000005
+       R2  = 00000007
+       R3  = 00000064
+       R4  = FFFFFFFF
+       R5  = 00000005
+       R6  = 00000007
+       R7  = 00000002
+       R8  = FFFFFFF8
+       R9  = 00000021
+       R10 = 0000000A
+       R11 = 7FFFFFFC
+       R12 = 00020000
+       R13 = FFFFFF80
+       R14 = 0000001B
+       R15 = 0000002A
+PASS - Independent reference model expected Data Memory state:
+       MEM[0]  = 0000000C
+       MEM[1]  = 00000080
+       MEM[2]  = 0000000C
+       MEM[3]  = 00000001
+       MEM[4]  = 0000000C
+       MEM[5]  = 0000000C
+       MEM[6]  = FFFFFFFF
+       MEM[7]  = 00020000
+       MEM[8]  = 00020000
+       MEM[9]  = 00000000
+       MEM[10] = 00000000
+       MEM[11] = 00000000
+PASS - First execution of the PC=46 halt-like self-loop is reached after
+       164 modeled instruction-state cycles including the first J-at-PC46;
+       the testbench allowance of 240 rising edges leaves margin.
+PASS - No zero-byte placeholder files remain in the current handoff package.
+PASS - Old waveform/PASS screenshots and the incorrect legacy ISA diagram are
+       excluded from the current handoff package.
+
+FINAL VALIDATION STATUS
+-----------------------
+The required fresh Vivado/XSim behavioral run was subsequently completed.
+The observed RTL results match the independent expected state above, all 21
+opcodes passed coverage, all four BEQ/BNE branch outcomes passed, and the final
+console reported FINAL PROCESSOR TEST: PASS at 2415 ns.

@@ -1,0 +1,52 @@
+ENCS4370 Project 2 - Final Integration Regression
+Expected vs Actual - Fresh Vivado/XSim Run
+=================================================
+
+Simulation tool : Vivado 2026.1 / Vivado Simulator (XSim)
+Testbench       : final_processor_tb.v (updated final regression)
+Final result    : FINAL PROCESSOR TEST: PASS
+Completion time : 2415 ns ($finish time)
+
+Location  Expected     Actual        Status
+--------  --------     --------      ------
+R0        00000000     00000000      PASS
+R1        00000005     00000005      PASS
+R2        00000007     00000007      PASS
+R3        00000064     00000064      PASS
+R4        FFFFFFFF     FFFFFFFF      PASS
+R5        00000005     00000005      PASS
+R6        00000007     00000007      PASS
+R7        00000002     00000002      PASS
+R8        FFFFFFF8     FFFFFFF8      PASS
+R9        00000021     00000021      PASS
+R10       0000000A     0000000A      PASS
+R11       7FFFFFFC     7FFFFFFC      PASS
+R12       00020000     00020000      PASS
+R13       FFFFFF80     FFFFFF80      PASS
+R14       0000001B     0000001B      PASS
+R15       0000002A     0000002A      PASS
+
+MEM[0]    0000000C     0000000C      PASS
+MEM[1]    00000080     00000080      PASS
+MEM[2]    0000000C     0000000C      PASS
+MEM[3]    00000001     00000001      PASS
+MEM[4]    0000000C     0000000C      PASS
+MEM[5]    0000000C     0000000C      PASS
+MEM[6]    FFFFFFFF     FFFFFFFF      PASS
+MEM[7]    00020000     00020000      PASS
+MEM[8]    00020000     00020000      PASS
+MEM[9]    00000000     00000000      PASS
+MEM[10]   00000000     00000000      PASS
+MEM[11]   00000000     00000000      PASS
+
+Coverage result:
+PASS - all opcodes 0 through 20 executed.
+PASS - BEQ taken.
+PASS - BEQ not taken.
+PASS - BNE taken.
+PASS - BNE not taken.
+
+R0 protection note:
+The event trace prints an attempted write "R0 <= 0000007b". The final direct
+Register File storage check reports R0 = 00000000, confirming that the
+hardwired-zero Register File correctly ignores the attempted write.
